@@ -1,0 +1,2 @@
+include ':app', ':lifecycleapp', ':praktikum5'
+rootProject.name='MyProjectPPB'
