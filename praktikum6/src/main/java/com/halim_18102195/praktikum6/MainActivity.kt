@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         showRecyclerList()
     }
 
-    fun getListMyDatas(): ArrayList<MyData> {
+    private fun getListMyDatas(): ArrayList<MyData> {
         val dataName = resources.getStringArray(R.array.data_name)
         val dataDescription = resources.getStringArray(R.array.data_description)
         val dataPhoto = resources.getStringArray(R.array.data_photo)

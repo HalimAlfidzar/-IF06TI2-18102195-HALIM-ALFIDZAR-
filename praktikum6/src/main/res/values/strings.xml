@@ -52,10 +52,30 @@
     <string-array name="data_lat">
         <item>-7.333797</item>
         <item>-7.374473</item>
+        <item>-7.3090267</item>
+        <item>-7.3305408</item>
+        <item>-7.3157138</item>
+        <item>-7.3397431</item>
+        <item>-7.5190126</item>
+        <item>-7.7997763</item>
+        <item>-7.3239267</item>
+        <item>-7.3555203</item>
+        <item>-7.3049015</item>
+        <item>-7.2402745</item>
     </string-array>
     <string-array name="data_lang">
         <item>109.206959</item>
         <item>109.240532</item>
+        <item>109.206589</item>
+        <item>109.2225275</item>
+        <item>109.2394531</item>
+        <item>109.2056378</item>
+        <item>109.2123145</item>
+        <item>109.7194981</item>
+        <item>109.2159274</item>
+        <item>109.2247193</item>
+        <item>109.2420843</item>
+        <item>109.1997133</item>
     </string-array>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="large_text">

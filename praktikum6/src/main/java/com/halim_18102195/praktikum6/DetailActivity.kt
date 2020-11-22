@@ -1,6 +1,7 @@
 package com.halim_18102195.praktikum6
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 import com.google.android.material.snackbar.Snackbar
@@ -31,8 +32,9 @@ class DetailActivity : AppCompatActivity() {
             .apply(RequestOptions().override(700, 700))
             .into(iv_detail_photo)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val moveWithObjectIntent = Intent(this, MapsActivity::class.java)
+            moveWithObjectIntent.putExtra(MapsActivity.EXTRA_MYDATA, myData)
+            startActivity(moveWithObjectIntent)
         }
     }
 
