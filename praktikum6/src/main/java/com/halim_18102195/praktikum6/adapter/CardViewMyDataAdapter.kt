@@ -55,6 +55,4 @@ class CardViewMyDataAdapter(private val listMyDatas: ArrayList<MyData>, val cont
         var btnFavorite: Button = itemView.findViewById(R.id.btn_set_favorite)
         var btnShare: Button = itemView.findViewById(R.id.btn_set_share)
     }
-
-
 }
