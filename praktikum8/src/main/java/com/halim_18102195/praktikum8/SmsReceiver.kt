@@ -11,7 +11,8 @@ import android.util.Log
 class SmsReceiver : BroadcastReceiver() {
     private val TAG = SmsReceiver::class.java.simpleName
     override fun onReceive(context: Context, intent: Intent) {
-        val bundle = intent.extras try {
+        val bundle = intent.extras
+        try {
             if (bundle != null) {
                 val pdusObj = bundle.get("pdus") as Array<Any>
                 for (aPdusObj in pdusObj) {
