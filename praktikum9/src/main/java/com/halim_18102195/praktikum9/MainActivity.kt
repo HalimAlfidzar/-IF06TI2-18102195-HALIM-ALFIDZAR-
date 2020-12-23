@@ -1,5 +1,6 @@
 package com.halim_18102195.praktikum9
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
@@ -8,6 +9,10 @@ import com.halim_18102195.praktikum9.databinding.ActivityMainBinding
 import com.halim_18102195.praktikum9.preference.SettingPreference
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        private const val REQUEST_CODE = 100
+    }
+
     private lateinit var settingModel: SettingModel
     private lateinit var binding: ActivityMainBinding
     private lateinit var mSettingPreference: SettingPreference
@@ -33,5 +38,17 @@ class MainActivity : AppCompatActivity() {
             delegate.applyDayNight()
         }
         binding.settingModel = settingModel
+    }
+    fun openSetting(){
+        val intent = Intent(this@MainActivity, SettingPreferenceActivity::class.java)
+        startActivityForResult(intent, REQUEST_CODE)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == SettingPreferenceActivity.RESULT_CODE) {
+                showExistingPreference()
+            }
+        }
     }
 }
