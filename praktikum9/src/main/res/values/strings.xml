@@ -10,6 +10,8 @@
     <string name="default_phone">No Phone Number</string>
     <string name="default_age">No Age</string>
     <string name="default_theme">System Default</string>
+    <string name="default_jenis">No Jenis</string>
+    <string name="default_agama">No Agama</string>
     <string name="setting">SETTING</string>
     <string name="main_title">Dashboard</string>
     <string name="dark_theme">Tema Gelap</string>
@@ -21,4 +23,8 @@
     <string name="field_required">Kolom Tidak Boleh Kosong</string>
     <string name="email_is_not_valid">Email Tidak Valid</string>
     <string name="field_digit_only">Kolom Hanya Untuk Angka</string>
+    <string name="jenisKelamin">Jenis Kelamin</string>
+    <string name="agama">Agama</string>
+    <string name="tv_jenisKelamin">Jenis Kelamin</string>
+    <string name="tv_agama">Agama</string>
 </resources>

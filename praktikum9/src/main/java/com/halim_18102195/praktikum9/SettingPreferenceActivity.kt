@@ -36,6 +36,8 @@ class SettingPreferenceActivity : AppCompatActivity(), View.OnClickListener {
             val email = binding.edtEmail.text.toString().trim()
             val age = binding.edtAge.text.toString().trim()
             val phoneNo = binding.edtPhone.text.toString().trim()
+            val jenisKelamin = binding.edtJenisKelamin.text.toString().trim()
+            val agama = binding.edtAgama.text.toString().trim()
             val isLoveMU = binding.rgLoveMu.checkedRadioButtonId == R.id.rb_yes
             if (name.isEmpty()) {
                 binding.edtName.error = getString(R.string.field_required)
@@ -57,11 +59,19 @@ class SettingPreferenceActivity : AppCompatActivity(), View.OnClickListener {
                 binding.edtPhone.error = getString(R.string.field_required)
                 return
             }
+            if (jenisKelamin.isEmpty()) {
+                binding.edtJenisKelamin.error = getString(R.string.field_required)
+                return
+            }
+            if (agama.isEmpty()) {
+                binding.edtAgama.error = getString(R.string.field_required)
+                return
+            }
             if (!TextUtils.isDigitsOnly(phoneNo)) {
                 binding.edtPhone.error = getString(R.string.field_digit_only)
                 return
             }
-            saveSetting(name, email, age, phoneNo, isLoveMU)
+            saveSetting(name, email, age, phoneNo, jenisKelamin, agama, isLoveMU)
             val resultIntent = Intent()
             setResult(RESULT_CODE, resultIntent)
             finish()
@@ -75,18 +85,23 @@ class SettingPreferenceActivity : AppCompatActivity(), View.OnClickListener {
         binding.edtEmail.setText(settingModel.email)
         binding.edtAge.setText(settingModel.age.toString())
         binding.edtPhone.setText(settingModel.phoneNumber)
+        binding.edtJenisKelamin.setText(settingModel.jenisKelamin)
+        binding.edtAgama.setText(settingModel.agama)
+
         if (settingModel.isDarkTheme) {
             binding.rbYes.isChecked = true
         } else {
             binding.rbNo.isChecked = true
         }
     }
-    private fun saveSetting(name: String, email: String, age: String, phoneNo: String, isDark: Boolean) {
+    private fun saveSetting(name: String, email: String, age: String, phoneNo: String, jenisKelamin: String, agama: String, isDark: Boolean) {
         val settingPreference = SettingPreference(this)
         settingModel.name = name
         settingModel.email = email
         settingModel.age = Integer.parseInt(age)
         settingModel.phoneNumber = phoneNo
+        settingModel.jenisKelamin = jenisKelamin
+        settingModel.agama = agama
         settingModel.isDarkTheme = isDark
         settingPreference.setSetting(settingModel)
         Toast.makeText(this, "Data tersimpan", Toast.LENGTH_SHORT).show()

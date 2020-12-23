@@ -10,6 +10,8 @@ import com.halim_18102195.praktikum9.data.SettingModel
             private const val EMAIL = "email"
             private const val AGE = "age"
             private const val PHONE_NUMBER = "phone"
+            private const val JENIS_KELAMIN = "jenisKelamin"
+            private const val AGAMA = "agama"
             private const val THEME = "theme"
         }
 
@@ -20,6 +22,8 @@ import com.halim_18102195.praktikum9.data.SettingModel
             editor.putString(EMAIL, value.email)
             editor.putInt(AGE, value.age)
             editor.putString(PHONE_NUMBER, value.phoneNumber)
+            editor.putString(JENIS_KELAMIN, value.jenisKelamin)
+            editor.putString(AGAMA, value.agama)
             editor.putBoolean(THEME, value.isDarkTheme)
             editor.apply()
         }
@@ -29,8 +33,10 @@ import com.halim_18102195.praktikum9.data.SettingModel
             model.name = preferences.getString(NAME, "")
             model.email = preferences.getString(EMAIL, "")
             model.age = preferences.getInt(AGE, 0)
-            model.phoneNumber = preferences.getString(PHONE_NUMBER, "")
+            model.agama = preferences.getString(AGAMA, "")
             model.isDarkTheme = preferences.getBoolean(THEME, false)
+            model.phoneNumber = preferences.getString(PHONE_NUMBER, "")
+            model.jenisKelamin = preferences.getString(JENIS_KELAMIN, "")
             return model
         }
     }
