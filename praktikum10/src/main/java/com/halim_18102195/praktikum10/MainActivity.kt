@@ -56,7 +56,8 @@ class MainActivity : AppCompatActivity() {
                     if (quotes.size > 0) {
                         adapter.listQuotes = quotes
                     } else {
-                        adapter.listQuotes = ArrayList() showSnackbarMessage("Tidak ada data saat ini")
+                        adapter.listQuotes = ArrayList()
+                        showSnackbarMessage("Tidak ada data saat ini")
                     }
         }
     }
