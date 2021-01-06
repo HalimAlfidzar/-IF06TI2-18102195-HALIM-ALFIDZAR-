@@ -2,11 +2,18 @@ package com.halim_18102195.praktikum10
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.halim_18102195.praktikum10.adapter.QuoteAdapter
 import com.halim_18102195.praktikum10.data.Quote
 import com.halim_18102195.praktikum10.databinding.ActivityMainBinding
 import com.halim_18102195.praktikum10.db.QuoteHelper
+import com.halim_18102195.praktikum10.helper.mapCursorToArrayList
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var quoteHelper: QuoteHelper
@@ -39,5 +46,21 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelableArrayList(EXTRA_STATE, adapter.listQuotes)
+    }
+    private fun loadQuotes() {
+        GlobalScope.launch(Dispatchers.Main) {
+            progressbar.visibility = View.VISIBLE
+            val cursor = quoteHelper.queryAll()
+            var quotes = mapCursorToArrayList(cursor)
+            progressbar.visibility = View.INVISIBLE
+                    if (quotes.size > 0) {
+                        adapter.listQuotes = quotes
+                    } else {
+                        adapter.listQuotes = ArrayList() showSnackbarMessage("Tidak ada data saat ini")
+                    }
+        }
+    }
+    private fun showSnackbarMessage(message: String) {
+        Snackbar.make(binding.rvQuotes, message, Snackbar.LENGTH_SHORT).show()
     }
 }
