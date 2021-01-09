@@ -1,2 +1,2 @@
-include ':app', ':lifecycleapp', ':praktikum5'
+include ':app', ':lifecycleapp', ':praktikum5', ':praktikum6'
 rootProject.name='MyProjectPPB'
