@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     binding.tvUserId.text = providerId
                 }
                 if(photoUrl != null){
-                    Glide.with(this).load(photoUrl).into(binding.ivImage)
+                    Glide.with(this).load(photoUrl).circleCrop().into(binding.ivImage)
                 }
             }
         }
