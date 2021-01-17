@@ -22,6 +22,7 @@ import com.halim_18102195.praktikum11.helper.ALERT_DIALOG_DELETE
 import com.halim_18102195.praktikum11.helper.EXTRA_POSITION
 import com.halim_18102195.praktikum11.helper.EXTRA_QUOTE
 import com.halim_18102195.praktikum11.helper.RESULT_ADD
+import com.halim_18102195.praktikum11.helper.RESULT_UPDATE
 import kotlinx.android.synthetic.main.activity_quote_add_update.*
 
 
@@ -122,7 +123,24 @@ class QuoteAddUpdateActivity : AppCompatActivity(), View.OnClickListener {
                 return
             }
             if (isEdit) {
-
+                val currentUser = auth.currentUser
+                val user = hashMapOf(
+                    "uid" to currentUser?.uid,
+                    "title" to title,
+                    "description" to description,
+                    "category" to categoryName,
+                    "date" to FieldValue.serverTimestamp()
+                )
+                firestore.collection("quotes").document(quote?.id.toString())
+                    .set(user)
+                    .addOnSuccessListener {
+                        setResult(RESULT_UPDATE, intent)
+                        finish()
+                    }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(this@QuoteAddUpdateActivity, "Gagal mengupdate data",
+                            Toast.LENGTH_SHORT).show()
+                    }
             } else {
                 val currentUser = auth.currentUser
                 val user = hashMapOf(
