@@ -4,11 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.halim_18102195.praktikum14.CoroutineContextProvider
 import com.halim_18102195.praktikum14.QuoteAdapter
@@ -16,7 +13,6 @@ import com.halim_18102195.praktikum14.R
 import com.halim_18102195.praktikum14.TokenPref
 import com.halim_18102195.praktikum14.`interface`.MainView
 import com.halim_18102195.praktikum14.api.MainPresenter
-import com.halim_18102195.praktikum14.databinding.FragmentClassQuotesBinding
 import com.halim_18102195.praktikum14.databinding.FragmentGlobalQuotesBinding
 import com.halim_18102195.praktikum14.model.Login
 import com.halim_18102195.praktikum14.model.Quote

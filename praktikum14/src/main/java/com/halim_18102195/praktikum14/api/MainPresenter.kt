@@ -12,8 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainPresenter(private val view: MainView, private val context:
-CoroutineContextProvider = CoroutineContextProvider()) {
+class MainPresenter(private val view: MainView, private val context: CoroutineContextProvider = CoroutineContextProvider()) {
     fun getMyQuotes(token:String?) {
         GlobalScope.launch (context.main){
             try {
